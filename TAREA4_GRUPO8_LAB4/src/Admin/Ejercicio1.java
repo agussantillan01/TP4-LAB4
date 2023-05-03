@@ -1,6 +1,7 @@
 package Admin;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -28,6 +29,7 @@ public class Ejercicio1 extends JFrame {
 			public void run() {
 				try {
 					Ejercicio1 frame = new Ejercicio1();
+					
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -94,9 +96,13 @@ public class Ejercicio1 extends JFrame {
 		JButton btnMostrar = new JButton("Mostrar");
 		btnMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (txtNombre.getText() != "" && txtApellido.getText() != "" && txtTelefono.getText() != "" && txtFechaNacimiento.getText()!= "") {
-					lblDatosIngresados.setText( txtNombre.getText() +","+ txtApellido.getText() + ", " + txtTelefono.getText() + " y "+ txtFechaNacimiento.getText());
-				}
+				//if (txtNombre.getText() != "" && txtApellido.getText() != "" && txtTelefono.getText() != "" && txtFechaNacimiento.getText()!= "") {
+				//	lblDatosIngresados.setText( txtNombre.getText() +","+ txtApellido.getText() + ", " + txtTelefono.getText() + " y "+ txtFechaNacimiento.getText());
+				//}
+				if (txtNombre.getText() == null) txtNombre.setBackground(Color.RED);
+				if (txtApellido.getText() == null) txtApellido.setBackground(Color.RED);
+				if (txtFechaNacimiento.getText() == null) txtFechaNacimiento.setBackground(Color.RED);
+				if (txtTelefono.getText() == null) txtTelefono.setBackground(Color.RED);
 			}
 		});
 		btnMostrar.setBounds(276, 232, 97, 25);

@@ -15,6 +15,7 @@ public class MenuPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	Ejercicio1 ej1 = new Ejercicio1();
+	Ejercicio2 ej2 = new Ejercicio2();
 
 	/**
 	 * Launch the application.
@@ -54,6 +55,11 @@ public class MenuPrincipal extends JFrame {
 		contentPane.add(btnEjercicio1);
 		
 		JButton btnEjercicio2 = new JButton("Ejercicio 2");
+		btnEjercicio2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ej2.setVisible(true);
+			}
+		});
 		btnEjercicio2.setBounds(87, 122, 97, 25);
 		contentPane.add(btnEjercicio2);
 		
