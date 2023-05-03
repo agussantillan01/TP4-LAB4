@@ -16,6 +16,7 @@ public class MenuPrincipal extends JFrame {
 	private JPanel contentPane;
 	Ejercicio1 ej1 = new Ejercicio1();
 	Ejercicio2 ej2 = new Ejercicio2();
+	Ejercicio3 ej3 = new Ejercicio3();
 
 	/**
 	 * Launch the application.
@@ -65,6 +66,11 @@ public class MenuPrincipal extends JFrame {
 		
 		JButton btnEjercicio3 = new JButton("Ejercicio 3");
 		btnEjercicio3.setBounds(87, 175, 97, 25);
+		btnEjercicio3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ej3.setVisible(true);
+			}
+		});
 		contentPane.add(btnEjercicio3);
 		
 		JLabel lblGrupo = new JLabel("GRUPO 8");
