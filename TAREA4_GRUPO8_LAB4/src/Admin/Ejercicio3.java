@@ -17,10 +17,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 public class Ejercicio3 extends JFrame {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
@@ -34,27 +30,8 @@ public class Ejercicio3 extends JFrame {
 	private String Especialidad;
 	private String Horas;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ejercicio3 frame = new Ejercicio3();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Ejercicio3() {
-		setTitle("Seleccion Multiple");
+		setTitle("Selección Múltiple");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 555, 486);
 		contentPane = new JPanel();
@@ -76,7 +53,7 @@ public class Ejercicio3 extends JFrame {
 		gbc_panel.gridy = 0;
 		contentPane.add(panel, gbc_panel);
 		
-		JLabel lblNewLabel = new JLabel("Elije un sistema Operativo");
+		JLabel lblNewLabel = new JLabel("Elija un Sistema Operativo:");
 		panel.add(lblNewLabel);
 		
 		rdbtnWindows = new JRadioButton("Windows");
@@ -103,28 +80,28 @@ public class Ejercicio3 extends JFrame {
 		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 
-		chckbxProgramacion = new JCheckBox("Programacion");
+		chckbxProgramacion = new JCheckBox("Programación");
 		GridBagConstraints gbc_chckbxProgramacion = new GridBagConstraints();
 		gbc_chckbxProgramacion.insets = new Insets(0, 0, 5, 0);
 		gbc_chckbxProgramacion.gridx = 4;
 		gbc_chckbxProgramacion.gridy = 0;
 		panel_1.add(chckbxProgramacion, gbc_chckbxProgramacion);
 		
-		JLabel lblEijeUnaEspecialidad = new JLabel("Eije una Especialidad");
+		JLabel lblEijeUnaEspecialidad = new JLabel("Elija una Especialidad:");
 		GridBagConstraints gbc_lblEijeUnaEspecialidad = new GridBagConstraints();
 		gbc_lblEijeUnaEspecialidad.insets = new Insets(0, 0, 5, 5);
 		gbc_lblEijeUnaEspecialidad.gridx = 0;
 		gbc_lblEijeUnaEspecialidad.gridy = 1;
 		panel_1.add(lblEijeUnaEspecialidad, gbc_lblEijeUnaEspecialidad);
 		
-		chckbxAdminitracion = new JCheckBox("Adminitracion");
+		chckbxAdminitracion = new JCheckBox("Administración");
 		GridBagConstraints gbc_chckbxAdminitracion = new GridBagConstraints();
 		gbc_chckbxAdminitracion.insets = new Insets(0, 0, 5, 0);
 		gbc_chckbxAdminitracion.gridx = 4;
 		gbc_chckbxAdminitracion.gridy = 1;
 		panel_1.add(chckbxAdminitracion, gbc_chckbxAdminitracion);
 		
-		chckbxDiseoGrafico = new JCheckBox("Dise\u00F1o Grafico");
+		chckbxDiseoGrafico = new JCheckBox("Diseño Gráfico");
 		GridBagConstraints gbc_chckbxDiseoGrafico = new GridBagConstraints();
 		gbc_chckbxDiseoGrafico.gridx = 4;
 		gbc_chckbxDiseoGrafico.gridy = 2;

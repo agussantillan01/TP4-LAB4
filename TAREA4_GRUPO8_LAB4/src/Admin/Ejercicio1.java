@@ -1,11 +1,11 @@
 package Admin;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -14,35 +14,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Ejercicio1 extends JFrame {
-
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtFechaNacimiento;
 	private JTextField txtTelefono;
 	private JTextField txtApellido;
 	private JTextField txtNombre;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ejercicio1 frame = new Ejercicio1();
-					
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Ejercicio1() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 481);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -57,11 +37,11 @@ public class Ejercicio1 extends JFrame {
 		lblApellido.setBounds(25, 86, 56, 16);
 		contentPane.add(lblApellido);
 		
-		JLabel lblTelefono = new JLabel("Telefono:");
+		JLabel lblTelefono = new JLabel("Teléfono:");
 		lblTelefono.setBounds(25, 142, 56, 16);
 		contentPane.add(lblTelefono);
 		
-		JLabel lblFecNacimiento = new JLabel("Fec. Nacimiento:");
+		JLabel lblFecNacimiento = new JLabel("Fecha de Nacimiento:");
 		lblFecNacimiento.setBounds(12, 189, 101, 16);
 		contentPane.add(lblFecNacimiento);
 		
@@ -89,20 +69,53 @@ public class Ejercicio1 extends JFrame {
 		lblLosDatosIngresados.setBounds(12, 267, 192, 16);
 		contentPane.add(lblLosDatosIngresados);
 		
-		JLabel lblDatosIngresados = new JLabel("");
-		lblDatosIngresados.setBounds(37, 306, 274, 115);
+		JTextArea lblDatosIngresados = new JTextArea();
+		lblDatosIngresados.setEditable(false);
+		lblDatosIngresados.setBounds(37, 306, 345, 100);
 		contentPane.add(lblDatosIngresados);
 		
 		JButton btnMostrar = new JButton("Mostrar");
 		btnMostrar.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				//if (txtNombre.getText() != "" && txtApellido.getText() != "" && txtTelefono.getText() != "" && txtFechaNacimiento.getText()!= "") {
-				//	lblDatosIngresados.setText( txtNombre.getText() +","+ txtApellido.getText() + ", " + txtTelefono.getText() + " y "+ txtFechaNacimiento.getText());
-				//}
-				if (txtNombre.getText() == null) txtNombre.setBackground(Color.RED);
-				if (txtApellido.getText() == null) txtApellido.setBackground(Color.RED);
-				if (txtFechaNacimiento.getText() == null) txtFechaNacimiento.setBackground(Color.RED);
-				if (txtTelefono.getText() == null) txtTelefono.setBackground(Color.RED);
+				boolean volver = false;
+				
+				if (txtNombre.getText().length() == 0) {
+					txtNombre.setBackground(Color.red);
+					volver = true;
+				}
+				if (txtApellido.getText().length() == 0) {
+					txtApellido.setBackground(Color.red);
+					volver = true;
+				}
+				if (txtFechaNacimiento.getText().length() == 0) {
+					txtFechaNacimiento.setBackground(Color.red);
+					volver = true;
+				}
+				if (txtTelefono.getText().length() == 0) {
+					txtTelefono.setBackground(Color.red);
+					volver = true;
+				}
+				
+				if (volver)
+					return;
+				
+				txtNombre.setBackground(Color.white);
+				txtApellido.setBackground(Color.white);
+				txtFechaNacimiento.setBackground(Color.white);
+				txtTelefono.setBackground(Color.white);
+				
+				lblDatosIngresados.setText(
+								"Nombre: " + txtNombre.getText() + "\n" +
+								"Apellido: " + txtApellido.getText() + "\n" +
+								"Teléfono: " + txtTelefono.getText() + "\n" +
+								"Fecha de Nacimiento: " + txtFechaNacimiento.getText() + "\n"
+						);
+				
+				txtNombre.setText("");
+				txtApellido.setText("");
+				txtFechaNacimiento.setText("");
+				txtTelefono.setText("");
 			}
 		});
 		btnMostrar.setBounds(276, 232, 97, 25);

@@ -1,20 +1,18 @@
 package Admin;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JToolBar;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Ejercicio2 extends JFrame {
+	private static final long serialVersionUID = 1L;
+
 	private JPanel contentPane;
 	private JTextField txtNota1;
 	private JTextField txtNota2;
@@ -22,28 +20,8 @@ public class Ejercicio2 extends JFrame {
 	private JTextField txtPromedio;
 	private JTextField txtCondicion;
 
-	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ejercicio2 frame = new Ejercicio2();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Ejercicio2() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 475, 409);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -83,7 +61,7 @@ public class Ejercicio2 extends JFrame {
 		contentPane.add(txtNota3);
 		txtNota3.setColumns(10);
 		
-		JComboBox cmbCalificacion = new JComboBox();
+		JComboBox<String> cmbCalificacion = new JComboBox<String>();
 		cmbCalificacion.setBounds(80, 154, 118, 22);
 		cmbCalificacion.addItem("Aprobado");
 		cmbCalificacion.addItem("Desaprobado");
@@ -98,7 +76,7 @@ public class Ejercicio2 extends JFrame {
 		contentPane.add(txtPromedio);
 		txtPromedio.setColumns(10);
 		
-		JLabel lblCondicion = new JLabel("Condicion:");
+		JLabel lblCondicion = new JLabel("Condición:");
 		lblCondicion.setBounds(12, 301, 81, 16);
 		contentPane.add(lblCondicion);
 		

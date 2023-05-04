@@ -1,6 +1,5 @@
 package Admin;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,31 +11,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class MenuPrincipal extends JFrame {
-
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	Ejercicio1 ej1 = new Ejercicio1();
 	Ejercicio2 ej2 = new Ejercicio2();
 	Ejercicio3 ej3 = new Ejercicio3();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuPrincipal frame = new MenuPrincipal();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public MenuPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 279, 322);
