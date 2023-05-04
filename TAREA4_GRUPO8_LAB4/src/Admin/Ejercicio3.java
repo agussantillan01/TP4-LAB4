@@ -23,6 +23,7 @@ public class Ejercicio3 extends JFrame {
 	private JRadioButton rdbtnWindows;
 	private JRadioButton rdbtnMac;
 	private JRadioButton rdbtnLinux;
+	private ButtonGroup grupo1;
 	private JCheckBox chckbxAdminitracion;
 	private JCheckBox chckbxProgramacion;
 	private JCheckBox chckbxDiseoGrafico;
@@ -57,6 +58,7 @@ public class Ejercicio3 extends JFrame {
 		panel.add(lblNewLabel);
 		
 		rdbtnWindows = new JRadioButton("Windows");
+		rdbtnWindows.setSelected(true);
 		panel.add(rdbtnWindows);
 		
 		rdbtnMac = new JRadioButton("Mac");
@@ -64,6 +66,11 @@ public class Ejercicio3 extends JFrame {
 		
 		rdbtnLinux = new JRadioButton("Linux");
 		panel.add(rdbtnLinux);
+
+		grupo1 = new ButtonGroup();
+		grupo1.add(rdbtnWindows);
+		grupo1.add(rdbtnMac);
+		grupo1.add(rdbtnLinux);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 3));
