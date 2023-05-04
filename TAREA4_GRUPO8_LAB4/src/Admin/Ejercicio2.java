@@ -63,8 +63,8 @@ public class Ejercicio2 extends JFrame {
 		
 		JComboBox<String> cmbCalificacion = new JComboBox<String>();
 		cmbCalificacion.setBounds(80, 154, 118, 22);
-		cmbCalificacion.addItem("Aprobado");
-		cmbCalificacion.addItem("Desaprobado");
+		cmbCalificacion.addItem("Aprobados");
+		cmbCalificacion.addItem("Desaprobados");
 		contentPane.add(cmbCalificacion);
 		
 		JLabel lblPromedio = new JLabel("Promedio:");
@@ -85,29 +85,35 @@ public class Ejercicio2 extends JFrame {
 		contentPane.add(txtCondicion);
 		txtCondicion.setColumns(10);
 		
-		JButton btnCalcular = new JButton("Calcular");
+		JButton btnCalcular = new JButton("CALCULAR");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (txtNota1.getText()!= "" && txtNota2.getText()!= "" && txtNota3.getText()!= "") {
-					int v1 = Integer.parseInt(txtNota1.getText()); 
-					int v2 = Integer.parseInt(txtNota2.getText()); 
-					int v3 = Integer.parseInt(txtNota3.getText()); 
+				boolean tpAprobado = cmbCalificacion.getSelectedIndex() == 0;
+				
+				try {
+					float nota1 = Float.parseFloat(txtNota1.getText());
+					float nota2 = Float.parseFloat(txtNota2.getText());
+					float nota3 = Float.parseFloat(txtNota3.getText());
+					float promedio = (nota1 + nota2 + nota3) / 3;
+
+					if (!tpAprobado || nota1 < 6 || nota2 < 6 || nota3 < 6)
+						txtCondicion.setText("LIBRE");
+					else if (promedio >= 8 && tpAprobado)
+						txtCondicion.setText("PROMOCIONADO");
+					else
+						txtCondicion.setText("REGULAR");
 					
-					float promedio = (v1+v2+v3)/3;
-					String promedioString = Float.toString(promedio);
-					txtPromedio.setText(promedioString);
-					String valorSeleccionado = (String) cmbCalificacion.getSelectedItem();
-					if (valorSeleccionado == "Desaprobado") txtCondicion.setText("LIBRE");
-					if(v1<6 || v2<6 || v3<6) txtCondicion.setText("LIBRE");
-					if(v1>=8 && v2>=8 && v3>=8 && valorSeleccionado == "Aprobado") txtCondicion.setText("PROMOCIONADO");
-					if (v1>5 && v1<9 && v2>5 && v2<9  && v3>5 && v3<9 && valorSeleccionado == "Aprobado") txtCondicion.setText("REGULAR");
+					txtPromedio.setText(
+							String.format("%.2f", promedio));
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
 		});
 		btnCalcular.setBounds(321, 96, 124, 38);
 		contentPane.add(btnCalcular);
 		
-		JButton btnLimpiar = new JButton("Limpiar");
+		JButton btnLimpiar = new JButton("NUEVO");
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtNota1.setText("");
@@ -120,10 +126,10 @@ public class Ejercicio2 extends JFrame {
 		btnLimpiar.setBounds(321, 157, 124, 38);
 		contentPane.add(btnLimpiar);
 		
-		JButton btnSalir = new JButton("Salir");
+		JButton btnSalir = new JButton("SALIR");
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//EVENTO CLICK DEL BOTON SALIR
+				dispose();
 			}
 		});
 		btnSalir.setBounds(321, 221, 124, 38);
